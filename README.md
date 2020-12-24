@@ -14,4 +14,8 @@
     celery -A test_project beat -l debug &
     celery -A test_project worker -n worker -l debug &
     
+# User Registration is not implemented
+    Use
+    * python manage.py createsuperuser
+    
 ![Alt text](img/url_monitor.png?raw=true "S3FM")

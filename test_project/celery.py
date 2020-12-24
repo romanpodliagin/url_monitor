@@ -6,7 +6,7 @@ from celery.schedules import crontab
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'test_project.settings')
 
 app = Celery('test_project')
-app.conf.broker_url = 'redis://romaan:DUQVa8L3JZ7X6nOyuVON8PybHmRfj@localhost:6379/0'
+app.conf.broker_url = 'redis://@localhost:6379/0'
 
 # Using a string here means the worker doesn't have to serialize
 # the configuration object to child processes.

@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    set_pause();
 });
 
 function sync(url_obj_id) {
@@ -21,16 +20,6 @@ function sync(url_obj_id) {
 
 function sync_all() {
     console.log('sync all urls ');
-}
-
-function set_pause() {
-    console.log('set_pause urls ');
-
-    $('#pause_2').each(function( index, item ) {
-        console.log(item);
-        $('input[id="pause_2"]').prop('checked',false);
-        }
-    );
 }
 
 $("[type='checkbox']").change(function() {

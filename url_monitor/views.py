@@ -5,7 +5,6 @@ from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
 from django.views import View
 from rest_framework import generics, status
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from url_monitor.models import Url
@@ -16,7 +15,7 @@ class Base(View):
     def get(self, request):
         user = request.user
         if not user.is_authenticated:
-            return redirect('/admin/')
+            return redirect('login')
 
         context = {}
         context.update(csrf(request))

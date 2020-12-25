@@ -8,7 +8,7 @@ function sync(url_obj_id) {
         type: 'POST',
         cache: false,
         data: {'url_obj_id': url_obj_id},
-        url: '/monitor/url/' + url_obj_id + '/',
+        url: '/monitor/sync/url/' + url_obj_id + '/',
         error: function(xhr, status, e) {
            console.log(xhr.responseJSON.msg);
         },
@@ -20,6 +20,19 @@ function sync(url_obj_id) {
 
 function sync_all() {
     console.log('sync all urls ');
+
+    $.ajax({
+        type: 'POST',
+        cache: false,
+        data: {},
+        url: '/monitor/sync/urls/',
+        error: function(xhr, status, e) {
+           console.log(xhr.responseJSON.msg);
+        },
+    }).done(function(response) {
+        console.log('success');
+        location.reload();
+    });
 }
 
 $("[type='checkbox']").change(function() {

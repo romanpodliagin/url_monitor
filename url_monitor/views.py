@@ -32,6 +32,16 @@ class SyncUrl(generics.CreateAPIView):
         return Response({'status': url_object.status}, status=status.HTTP_200_OK)
 
 
+class SyncUrlSet(generics.CreateAPIView):
+
+    def post(self, request):
+        status_list = []
+        for url_object in Url.objects.filter(active=True):
+            url_object.sync()
+            status_list.append(url_object.status)
+        return Response({'status': status_list}, status=status.HTTP_200_OK)
+
+
 class SyncActive(generics.CreateAPIView):
 
     def post(self, request, url_obj_id):

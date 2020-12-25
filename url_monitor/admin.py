@@ -10,6 +10,7 @@ from django.contrib.admin.models import LogEntry
 class UrlAdmin(admin.ModelAdmin):
     model = Url
     readonly_fields = ('created', 'updated')
+    list_filter = ('user',)
 
 
 class LogEntryAdmin(admin.ModelAdmin):
